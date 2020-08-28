@@ -87,7 +87,7 @@ class TokenGuard
     {
         if ($request->bearerToken()) {
             return $this->authenticateViaBearerToken($request);
-        } elseif ($request->cookie($this->getToken($request))) {
+        } elseif ($this->getToken($request)) {
             return $this->authenticateViaCookie($request);
         }
     }
